@@ -42,13 +42,11 @@
         case UIGestureRecognizerStateChanged:
             self.center = CGPointMake(self.transFormBeforePoint.x + self.transFloatX, self.transFormBeforePoint.y + self.transFloatY);
             
-            //转转转！
             CGFloat rotationStrength = MIN(self.transFloatX / 320, 1);
             
             CGFloat rotationAngel = (CGFloat)(M_PI/8 * rotationStrength);
 
             CGAffineTransform transForm = CGAffineTransformMakeRotation(rotationAngel);
-            // 缩放
             CGFloat scale = MAX(1 - fabs(rotationStrength) / 4, .93);
             CGAffineTransform scaleTransform = CGAffineTransformScale(transForm, scale, scale);
             
